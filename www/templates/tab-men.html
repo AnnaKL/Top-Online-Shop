@@ -7,6 +7,8 @@
         <ul>Price: {{item.price}}</ul>
         <ul>Quantity: {{item.quantity}}</ul>
       </div>
+        <button ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+        <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
     <h1>Men's Casualwear</h1>
     <ion-item ng-repeat="item in stock | filter: {category: 'Male Casualwear'}">
@@ -15,6 +17,8 @@
         <ul>Price: {{item.price}}</ul>
         <ul>Quantity: {{item.quantity}}</ul>
       </div>
+        <button ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+        <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
     <h1>Men's Formalwear</h1>
     <ion-item ng-repeat="item in stock | filter: {category: 'Male Formalwear'}">
@@ -23,6 +27,8 @@
         <ul>Price: {{item.price}}</ul>
         <ul>Quantity: {{item.quantity}}</ul>
       </div>
+        <button ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+        <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
   </ion-content>
 </ion-view>

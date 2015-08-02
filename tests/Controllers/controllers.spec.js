@@ -7,7 +7,7 @@ describe('Controllers', function(){
 	beforeEach(module('shop.controllers'));
 
 	beforeEach(function(){
-		StockMock = jasmine.createSpyObj('Stock', ['all', 'get'])
+		StockMock = jasmine.createSpyObj('Stock', ['all', 'get', 'update', 'updateBasket', 'order'])
 
     inject(function($rootScope, $controller){
 	  scope = $rootScope.$new();

@@ -2,7 +2,7 @@ angular.module('shop.services', [])
 
 .factory('Stock', function() {
 	
-
+    var order = [];
 	var items = [{
         id: 0,
 		name: "Almond Toe Court Shoes, Patent Black",
@@ -107,6 +107,25 @@ angular.module('shop.services', [])
         }
       }
       return null;
+    },
+    update: function(itemId) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].id === parseInt(itemId)) {
+          return items[i].quantity -= 1;
+        }
+      }
+      return null;
+    },
+    updateBasket: function(itemId) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].id === parseInt(itemId)) {
+          order.push({name: items[i].name, price: items[i].price});    
+        }
+      }
+     return null;
+    },
+    order: function() {
+      return order;
     }
 
   };

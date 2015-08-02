@@ -26,4 +26,10 @@ describe('Stock service', function(){
 	it('can pull an item from the stock', inject(function(Stock){
 	    expect(Stock.get(0).name).toEqual("Almond Toe Court Shoes, Patent Black")
 	}));
+
+	it('can remove an item form stock and update quantity', inject(function(Stock){
+		expect(Stock.get(0).quantity).toEqual(5);
+		Stock.update(0);
+		expect(Stock.get(0).quantity).toEqual(4);
+	}));
 });

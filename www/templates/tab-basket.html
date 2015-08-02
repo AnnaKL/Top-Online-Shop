@@ -1,0 +1,11 @@
+<ion-view view-title="Shop">
+  <ion-content>
+    <h1>Your Basket</h1>
+    <ion-item ng-repeat="item in order">
+      <div>
+      {{item.name}}<br>
+      Price: £{{item.price}}<br>
+      </div>
+    </ion-item>
+  </ion-content>
+</ion-view>

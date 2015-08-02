@@ -58,6 +58,15 @@ angular.module('shop', ['ionic', 'shop.controllers', 'shop.services'])
      }
     }
   })
+  .state('tab.basket', {
+      url: '/basket',
+      views: {
+      'tab-basket': {
+      templateUrl: 'templates/tab-basket.html',
+      controller: 'StockCtrl'
+     }
+    }
+  })
 
 
 
