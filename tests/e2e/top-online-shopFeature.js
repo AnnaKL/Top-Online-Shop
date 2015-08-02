@@ -2,8 +2,8 @@ describe('Top online shop', function() {
 	var womenClothesLink = element(by.className('women-link'));
 	var menClothesLink = element(by.className('men-link'));
   var basketLink = element(by.className('basket-link'));
-  var addToBasket = element(by.className('btn'));
-  var basketItems = element.all(by.repeater('item in order')).first()
+  var addToBasket = element(by.className('btn')); 
+  var basketItems = element.all(by.repeater('item in order')).first();
   var removeFromBasket = element(by.className('delete'));
   var applyFiveVoucher = element(by.className('five-pounds'));
   var applyTenVoucher = element(by.className('ten-pounds'));
@@ -122,7 +122,7 @@ describe('Top online shop', function() {
     basketLink.click();
     expect(element(by.className('total-price')).getText()).toEqual('Total: £34');
     applyTenVoucher.click();
-    expect(element(by.binding('tenAlert')).getText()).toEqual('You need to spend more than $50 pounds to use this voucher.');
+    expect(element(by.binding('tenAlert')).getText()).toEqual('You need to spend more than $50 pounds to use £10 voucher.');
   });
 
   it('updates total price when 15£ voucher applied', function(){
@@ -132,6 +132,23 @@ describe('Top online shop', function() {
     expect(element(by.className('total-price')).getText()).toEqual('Total: £99');
     applyFifteenVoucher.click();
     expect(element(by.className('total-price')).getText()).toEqual('Total: £84');
+  });
+
+  it('15£ voucher can\'t be applied when total price is equal to 0', function(){
+    womenClothesLink.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+    applyFifteenVoucher.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+  });
+
+  it('15£ voucher can\'t be applied when total price is less than 75 and order doesn\'t include footwear', function(){
+    menClothesLink.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £34');
+    applyFifteenVoucher.click();
+    expect(element(by.binding('fifteenAlert')).getText()).toEqual('You need to spend more than $75 pounds and buy a footwear to use £15 voucher.');
   });
 
 
