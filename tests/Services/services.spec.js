@@ -37,4 +37,9 @@ describe('Stock service', function(){
 		Stock.updateBasket(0);
 		expect(Stock.order()).toEqual([{name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
 	});
+
+	it('can calculate total price', function(){
+		Stock.updateBasket(0);
+		expect(Stock.total()).toEqual(99);
+	});
 });

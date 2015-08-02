@@ -5,6 +5,10 @@ angular.module('shop.controllers', [])
 	$scope.stock = Stock.all();
 	$scope.order = Stock.order();
 
+	$scope.showTotalPrice = function() {
+    $scope.total = Stock.total();
+  }
+
 	$scope.addToBasket = function(chatId){
     Stock.update(chatId);
     Stock.updateBasket(chatId); 

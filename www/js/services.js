@@ -3,6 +3,8 @@ angular.module('shop.services', [])
 .factory('Stock', function() {
 	
   var order = [];
+  var prices = [];
+  var total = 0;
 	var items = [{
         id: 0,
 		    name: "Almond Toe Court Shoes, Patent Black",
@@ -119,14 +121,18 @@ angular.module('shop.services', [])
     updateBasket: function(itemId) {
       for (var i = 0; i < items.length; i++) {
         if (items[i].id === parseInt(itemId)) {
-          order.push({name: items[i].name, price: items[i].price});    
+          order.push({name: items[i].name, price: items[i].price});
+          prices.push(items[i].price);    
         }
       }
      return null;
     },
     order: function() {
       return order;
-    }
+    },
+    total: function() {
+      return total = eval(prices.join('+')); 
+    },
 
   };
 });
