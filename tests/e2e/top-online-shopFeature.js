@@ -41,4 +41,11 @@ describe('Top online shop', function() {
     expect(element(by.className('out-of-stock')).isPresent()).toBe(true);
   });
 
+  it('updates displayed quantity when item added to the basket', function(){
+    womenClothesLink.click();
+    expect(element(by.binding('item.quantity')).getText()).toEqual('Quantity: 5');
+    pressButton.click();
+    expect(element(by.binding('item.quantity')).getText()).toEqual('Quantity: 4');
+  });
+
 });
