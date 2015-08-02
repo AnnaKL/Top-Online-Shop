@@ -21,6 +21,14 @@ angular.module('shop.controllers', [])
 
   $scope.applyFivePoundVoucher = function() {
   	Stock.fivePoundVoucher();
-  	console.log($scope.tota)
   };
+
+  $scope.applyFifteenPoundVoucher = function() {
+  	console.log($scope.total)
+  	if($scope.total > 50) {
+        Stock.fifteenPoundVoucher();
+      } else {
+        alert("You need to spend more than $50 pounds to use this voucher.")
+      }
+    };	
 });

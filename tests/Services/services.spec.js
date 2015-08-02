@@ -84,4 +84,11 @@ describe('Stock service', function(){
 		Stock.fivePoundVoucher();
 		expect(Stock.total()).toEqual(0);
 	});
+
+	it('allows £15 voucher to be applied', function(){
+		Stock.updateBasket(0);
+		expect(Stock.total()).toEqual(99);
+		Stock.fifteenPoundVoucher();
+		expect(Stock.total()).toEqual(84);
+	});
 });
