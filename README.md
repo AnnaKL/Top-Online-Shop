@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/AnnaKL/Top-Online-Shop.svg?branch=master)](https://travis-ci.org/AnnaKL/Top-Online-Shop) 
