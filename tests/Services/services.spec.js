@@ -32,4 +32,9 @@ describe('Stock service', function(){
 		Stock.update(0);
 		expect(Stock.get(0).quantity).toEqual(4);
 	}));
+
+	it('can place an item in the order array', function(){
+		Stock.updateBasket(0);
+		expect(Stock.order()).toEqual([{name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
+	});
 });
