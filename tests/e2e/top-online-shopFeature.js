@@ -4,6 +4,7 @@ describe('Top online shop', function() {
   var basketLink = element(by.className('basket-link'));
   var addToBasket = element(by.className('btn'));
   var basketItems = element.all(by.repeater('item in order')).first()
+  var removeFromBasket = element(by.className('delete'));
 
 
   beforeEach(function(){
@@ -57,4 +58,12 @@ describe('Top online shop', function() {
     expect(element(by.className('total-price')).getText()).toEqual('Total: £297');
   });
 
+  it('can remove item from the basket', function(){
+    womenClothesLink.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(basketItems.element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
+    removeFromBasket.click();
+    expect(element(by.binding('item.name')).getText()).toEqual('');
+  });
 });
