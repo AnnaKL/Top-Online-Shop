@@ -30,7 +30,6 @@ angular.module('shop.controllers', [])
         $scope.hideTenVoucherAlert();
       } else {
       	$scope.showTenVoucherAlert();
-        // alert("You need to spend more than $50 pounds to use this voucher.")
       }
     };
 

@@ -3,6 +3,7 @@ angular.module('shop.services', [])
 .factory('Stock', function() {
 	var five = 0;
   var ten = 0;
+  var fifteen = 0;
   var order = [];
   var prices = [];
 	var items = [{
@@ -135,6 +136,7 @@ angular.module('shop.services', [])
        if(total != 0) {
          total = total - five;
          total = total - ten;
+         total = total - fifteen;
       }
       return total;
     },
@@ -155,6 +157,9 @@ angular.module('shop.services', [])
     },
     tenPoundVoucher: function() {
       return ten = 10;
+    },
+    fifteenPoundVoucher: function() {
+      return fifteen = 15;
     }
   };
 });
