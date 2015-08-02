@@ -86,5 +86,13 @@ describe('Top online shop', function() {
     expect(element(by.className('total-price')).getText()).toEqual('Total: £94');
   });
 
+  it('5£ voucher can\'t be applied when total price is equal to 0', function(){
+    womenClothesLink.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+    applyFiveVoucher.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+  });
+
 
 });
