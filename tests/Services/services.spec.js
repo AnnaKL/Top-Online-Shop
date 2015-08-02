@@ -42,4 +42,11 @@ describe('Stock service', function(){
 		Stock.updateBasket(0);
 		expect(Stock.total()).toEqual(99);
 	});
+
+	it('can calculate total price of more than one item', function(){
+		Stock.updateBasket(0);
+		Stock.updateBasket(0);
+		Stock.updateBasket(0);
+		expect(Stock.total()).toEqual(297);
+	});
 });
