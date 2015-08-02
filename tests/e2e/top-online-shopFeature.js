@@ -30,4 +30,15 @@ describe('Top online shop', function() {
     basketLink.click();
     expect(basketItems.element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
   });
+  
+  it('display out-of-stock button when item\'s quantity equal to 0', function(){
+    womenClothesLink.click();
+    pressButton.click();
+    pressButton.click();
+    pressButton.click();
+    pressButton.click();
+    pressButton.click();
+    expect(element(by.className('out-of-stock')).isPresent()).toBe(true);
+  });
+
 });
