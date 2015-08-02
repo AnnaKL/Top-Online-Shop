@@ -2,7 +2,7 @@ describe('Top online shop', function() {
 	var womenClothesLink = element(by.className('women-link'));
 	var menClothesLink = element(by.className('men-link'));
   var basketLink = element(by.className('basket-link'));
-  var pressButton = element(by.className('btn'));
+  var addToBasket = element(by.className('btn'));
   var basketItems = element.all(by.repeater('item in order')).first()
 
 
@@ -26,26 +26,35 @@ describe('Top online shop', function() {
 
   it('can add item to the basket', function(){
     womenClothesLink.click();
-    pressButton.click();
+    addToBasket.click();
     basketLink.click();
     expect(basketItems.element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
   });
   
   it('display out-of-stock button when item\'s quantity equal to 0', function(){
     womenClothesLink.click();
-    pressButton.click();
-    pressButton.click();
-    pressButton.click();
-    pressButton.click();
-    pressButton.click();
+    addToBasket.click();
+    addToBasket.click();
+    addToBasket.click();
+    addToBasket.click();
+    addToBasket.click();
     expect(element(by.className('out-of-stock')).isPresent()).toBe(true);
   });
 
   it('updates displayed quantity when item added to the basket', function(){
     womenClothesLink.click();
     expect(element(by.binding('item.quantity')).getText()).toEqual('Quantity: 5');
-    pressButton.click();
+    addToBasket.click();
     expect(element(by.binding('item.quantity')).getText()).toEqual('Quantity: 4');
+  });
+
+  it('can calculate and display total price', function(){
+    womenClothesLink.click();
+    addToBasket.click();
+    addToBasket.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £297');
   });
 
 });
