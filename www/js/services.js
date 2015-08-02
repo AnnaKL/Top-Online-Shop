@@ -136,7 +136,14 @@ angular.module('shop.services', [])
     removeOrder: function(item) {
       order.splice(order.indexOf(item), 1);
       prices.splice(item.quantity, 1);
-      console.log(prices)
+    },
+    returnItemToStock: function(item) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].id === parseInt(item.id)) {
+          return items[i].quantity += 1;
+        }
+      }
+      return null;
     }
 
   };

@@ -16,5 +16,6 @@ angular.module('shop.controllers', [])
 
   $scope.removeItemFromBasket = function(item) {
   	Stock.removeOrder(item);
+  	Stock.returnItemToStock(item);
   };
 });
