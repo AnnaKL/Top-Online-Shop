@@ -75,4 +75,6 @@ describe('Top online shop', function() {
     removeFromBasket.click();
     expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
   });
+
+
 });

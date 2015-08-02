@@ -18,4 +18,9 @@ angular.module('shop.controllers', [])
   	Stock.removeOrder(item);
   	Stock.returnItemToStock(item);
   };
+
+  $scope.applyFivePoundVoucher = function() {
+  	Stock.fivePoundVoucher();
+  	console.log($scope.tota)
+  };
 });

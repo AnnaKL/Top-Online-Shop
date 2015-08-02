@@ -57,18 +57,26 @@ describe('Stock service', function(){
 		expect(Stock.order()).toEqual([]);
 	});
 
-	it('updates total when item removed from order', function(){
+	it('updates total price when item returned to stock', function(){
 		Stock.updateBasket(0);
 		expect(Stock.total()).toEqual(99);
 		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
 		expect(Stock.total()).toEqual(0);
 	});
 
-	it('updates the stock quantity when item removed from order', function(){
+	it('updates quantity when item returned to stock', function(){
         expect(Stock.get(0).quantity).toEqual(5);
 		Stock.update(0);
 		expect(Stock.get(0).quantity).toEqual(4);
 		Stock.returnItemToStock({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
 		expect(Stock.get(0).quantity).toEqual(5);
+	});
+
+	it('allows £5 to be applied', function(){
+		Stock.updateBasket(0);
+		expect(Stock.total()).toEqual(99);
+		Stock.fivePoundVoucher();
+		expect(Stock.total()).toEqual(94);
+
 	});
 });
