@@ -72,11 +72,16 @@ describe('Stock service', function(){
 		expect(Stock.get(0).quantity).toEqual(5);
 	});
 
-	it('allows £5 to be applied', function(){
+	it('allows £5 voucher to be applied', function(){
 		Stock.updateBasket(0);
 		expect(Stock.total()).toEqual(99);
 		Stock.fivePoundVoucher();
 		expect(Stock.total()).toEqual(94);
+	});
 
+	it('£5 voucher can\'t be apploed when order is equal 0', function(){
+		expect(Stock.total()).toEqual(0);
+		Stock.fivePoundVoucher();
+		expect(Stock.total()).toEqual(0);
 	});
 });
