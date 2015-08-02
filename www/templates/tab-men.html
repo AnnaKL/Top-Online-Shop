@@ -1,0 +1,28 @@
+<ion-view view-title="Shop">
+  <ion-content>
+    <h1>Men's Footwear</h1>
+    <ion-item ng-repeat="item in stock | filter: {category: 'Male Footwear'}">
+      <div>
+        <ul>{{item.name}}</ul>
+        <ul>Price: {{item.price}}</ul>
+        <ul>Quantity: {{item.quantity}}</ul>
+      </div>
+    </ion-item>
+    <h1>Men's Casualwear</h1>
+    <ion-item ng-repeat="item in stock | filter: {category: 'Male Casualwear'}">
+      <div>
+        <ul>{{item.name}}</ul>
+        <ul>Price: {{item.price}}</ul>
+        <ul>Quantity: {{item.quantity}}</ul>
+      </div>
+    </ion-item>
+    <h1>Men's Formalwear</h1>
+    <ion-item ng-repeat="item in stock | filter: {category: 'Male Formalwear'}">
+      <div>
+        <ul>{{item.name}}</ul>
+        <ul>Price: {{item.price}}</ul>
+        <ul>Quantity: {{item.quantity}}</ul>
+      </div>
+    </ion-item>
+  </ion-content>
+</ion-view>

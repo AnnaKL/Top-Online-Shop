@@ -1,0 +1,28 @@
+<ion-view view-title="Shop">
+  <ion-content>
+    <h1>Women's Footwear</h1>
+      <ion-item ng-repeat="item in stock | filter: {category: 'Women\'s Footwear'}">
+        <div id="women-footwear">
+          <ul>{{item.name}}</ul>
+          <ul>Price: {{item.price}}</ul>
+          <ul>Quantity: {{item.quantity}}</ul>
+        </div>
+      </ion-item>
+      <h1>Women's Casualwear</h1>
+      <ion-item ng-repeat="item in stock | filter: {category: 'Women\'s Casualwear'}">
+        <div>
+          <ul>{{item.name}}</ul>
+          <ul>Price: {{item.price}}</ul>
+          <ul>Quantity: {{item.quantity}}</ul>
+        </div>
+      </ion-item>
+      <h1>Women's Formalwear</h1>
+      <ion-item ng-repeat="item in stock | filter: {category: 'Women\'s Formalwear'}">
+        <div>
+          <ul>{{item.name}}</ul>
+          <ul>Price: {{item.price}}</ul>
+          <ul>Quantity: {{item.quantity}}</ul>
+        </div>
+    </ion-item>
+  </ion-content>
+</ion-view>
