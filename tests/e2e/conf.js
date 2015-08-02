@@ -1,7 +1,7 @@
 
 exports.config = {
 
-  baseUrl: 'http://localhost:8100/#/stock/',
+  baseUrl: 'http://localhost:8100',
 
   allScriptsTimeout: 11000,
 
