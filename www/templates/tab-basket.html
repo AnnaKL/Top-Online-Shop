@@ -6,6 +6,7 @@
 	      <ul>{{item.name}}</ul>
 	      <ul>Price: £{{item.price}}</ul>
       </div>
+       <button ng-click="removeItemFromBasket(item)">Remove</button>
     </ion-item>
     <div ng-show="showTotalPrice()"></div>
     <h1 class="total-price"> Total: £{{total}}</h1>

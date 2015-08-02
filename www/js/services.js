@@ -121,7 +121,7 @@ angular.module('shop.services', [])
     updateBasket: function(itemId) {
       for (var i = 0; i < items.length; i++) {
         if (items[i].id === parseInt(itemId)) {
-          order.push({name: items[i].name, price: items[i].price});
+          order.push({id: items[i].id, name: items[i].name, price: items[i].price});
           prices.push(items[i].price);    
         }
       }
@@ -133,6 +133,9 @@ angular.module('shop.services', [])
     total: function() {
       return total = eval(prices.join('+')); 
     },
+    removeOrder: function(item) {
+      order.splice(order.indexOf(item), 1);
+    }
 
   };
 });

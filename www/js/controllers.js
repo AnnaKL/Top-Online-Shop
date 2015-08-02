@@ -9,8 +9,12 @@ angular.module('shop.controllers', [])
     $scope.total = Stock.total();
   }
 
-	$scope.addToBasket = function(chatId){
-    Stock.update(chatId);
-    Stock.updateBasket(chatId); 
+	$scope.addToBasket = function(itemId){
+    Stock.update(itemId);
+    Stock.updateBasket(itemId); 
   }
+
+  $scope.removeItemFromBasket = function(item) {
+  	Stock.removeOrder(item);
+  };
 });

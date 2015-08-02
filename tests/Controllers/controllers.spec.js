@@ -10,9 +10,9 @@ describe('Controllers', function(){
 		StockMock = jasmine.createSpyObj('Stock', ['all', 'get', 'update', 'updateBasket', 'order'])
 
     inject(function($rootScope, $controller){
-	  scope = $rootScope.$new();
-	  control = $controller('StockCtrl', {$scope: scope, Stock: StockMock});
-    });
+		  scope = $rootScope.$new();
+		  control = $controller('StockCtrl', {$scope: scope, Stock: StockMock});
+     });
 	 });
 
 

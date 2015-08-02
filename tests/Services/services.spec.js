@@ -35,7 +35,7 @@ describe('Stock service', function(){
 
 	it('can place an item in the order array', function(){
 		Stock.updateBasket(0);
-		expect(Stock.order()).toEqual([{name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
+		expect(Stock.order()).toEqual([{id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
 	});
 
 	it('can calculate total price', function(){
@@ -48,5 +48,12 @@ describe('Stock service', function(){
 		Stock.updateBasket(0);
 		Stock.updateBasket(0);
 		expect(Stock.total()).toEqual(297);
+	});
+
+	it('can remove item from order', function(){
+		Stock.updateBasket(0);
+		expect(Stock.order()).toEqual([{id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
+		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
+		expect(Stock.order()).toEqual([]);
 	});
 });
