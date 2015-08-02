@@ -1,4 +1,20 @@
+
 exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['top-online-shopFeature.js']
-}
+
+  baseUrl: 'http://localhost:8100/#/stock/',
+
+  allScriptsTimeout: 11000,
+
+  specs: ['top-online-shopFeature.js'],
+
+  capabilities: {
+    'browserName': 'firefox'
+  },
+
+  framework: 'jasmine',
+
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 30000
+  }
+
+};
