@@ -7,6 +7,7 @@ describe('Top online shop', function() {
   var removeFromBasket = element(by.className('delete'));
   var applyFiveVoucher = element(by.className('five-pounds'));
   var applyTenVoucher = element(by.className('ten-pounds'));
+  var tenVoucherAlert = element(by.className('ten-alert'));
  
 
 
@@ -106,12 +107,21 @@ describe('Top online shop', function() {
     expect(element(by.className('total-price')).getText()).toEqual('Total: £89');
   });
 
-    it('10£ voucher can\'t be applied when total price is equal to 0', function(){
+  it('10£ voucher can\'t be applied when total price is equal to 0', function(){
     womenClothesLink.click();
     basketLink.click();
     expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
     applyTenVoucher.click();
     expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+  });
+
+  it('10£ voucher can\'t be applied when total price is less than 50', function(){
+    menClothesLink.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £34');
+    applyTenVoucher.click();
+    expect(element(by.binding('tenAlert')).getText()).toEqual('You need to spend more than $50 pounds to use this voucher.');
   });
 
 
