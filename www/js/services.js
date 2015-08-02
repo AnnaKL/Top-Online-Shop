@@ -4,7 +4,6 @@ angular.module('shop.services', [])
 	
   var order = [];
   var prices = [];
-  var total = 0;
 	var items = [{
         id: 0,
 		    name: "Almond Toe Court Shoes, Patent Black",
@@ -122,7 +121,7 @@ angular.module('shop.services', [])
       for (var i = 0; i < items.length; i++) {
         if (items[i].id === parseInt(itemId)) {
           order.push({id: items[i].id, name: items[i].name, price: items[i].price});
-          prices.push(items[i].price);    
+          prices.push(items[i].price);  
         }
       }
      return null;
@@ -131,10 +130,13 @@ angular.module('shop.services', [])
       return order;
     },
     total: function() {
-      return total = eval(prices.join('+')); 
+      for (var i = 0, total = 0; i < prices.length; total += prices[i++]);
+      return total;
     },
     removeOrder: function(item) {
       order.splice(order.indexOf(item), 1);
+      prices.splice(item.quantity, 1);
+      console.log(prices)
     }
 
   };

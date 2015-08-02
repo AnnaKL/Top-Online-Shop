@@ -56,4 +56,11 @@ describe('Stock service', function(){
 		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
 		expect(Stock.order()).toEqual([]);
 	});
+
+	it('updates total when item removed from order', function(){
+		Stock.updateBasket(0);
+		expect(Stock.total()).toEqual(99);
+		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
+		expect(Stock.total()).toEqual(0);
+	});
 });
