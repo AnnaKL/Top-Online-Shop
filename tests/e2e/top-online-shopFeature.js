@@ -1,8 +1,10 @@
 describe('Top online shop', function() {
-	var WomenClothesLink = element(by.className('women-link'));
-	var MenClothesLink = element(by.className('men-link'));
-	var MenTab = element(by.className('men-tab'));
-	var WomenTab = element(by.className('women-tab'));
+	var womenClothesLink = element(by.className('women-link'));
+	var menClothesLink = element(by.className('men-link'));
+  var basketLink = element(by.className('basket-link'));
+  var pressButton = element(by.className('btn'));
+  var basketItems = element.all(by.repeater('item in order')).first()
+
 
   beforeEach(function(){
     browser.get('http://localhost:8100');
@@ -13,12 +15,19 @@ describe('Top online shop', function() {
   });
 
   it('can display Women\'s Clothes', function(){
-  	WomenClothesLink.click();
+  	womenClothesLink.click();
   	expect(element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
   });
 
   it('can display Men\'s Clothes', function(){
-  	MenClothesLink.click();
+  	menClothesLink.click();
   	expect(element(by.binding('item.name')).getText()).toEqual('Leather Driver Saddle Loafers, Tan');
+  });
+
+  it('can add item to the basket', function(){
+    womenClothesLink.click();
+    pressButton.click();
+    basketLink.click();
+    expect(basketItems.element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
   });
 });

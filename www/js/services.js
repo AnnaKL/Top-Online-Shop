@@ -2,10 +2,10 @@ angular.module('shop.services', [])
 
 .factory('Stock', function() {
 	
-    var order = [];
+  var order = [];
 	var items = [{
         id: 0,
-		name: "Almond Toe Court Shoes, Patent Black",
+		    name: "Almond Toe Court Shoes, Patent Black",
         category: "Women's Footwear",
         price: 99,
         quantity: 5

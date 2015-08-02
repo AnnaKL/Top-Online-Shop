@@ -1,13 +1,14 @@
 <ion-view view-title="Shop">
   <ion-content>
+   <a class="basket-link" href="#/tab/basket">Show basket</a>
     <h1>Women's Footwear</h1>
       <ion-item ng-repeat="item in stock | filter: {category: 'Women\'s Footwear'}">
-        <div id="women-footwear">
+        <div>
           <ul>{{item.name}}</ul>
           <ul>Price: {{item.price}}</ul>
           <ul>Quantity: {{item.quantity}}</ul>
         </div>
-         <button ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+         <button class="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
          <button ng-if="item.quantity === 0">Out of stock</button>
       </ion-item>
       <h1>Women's Casualwear</h1>
@@ -17,7 +18,7 @@
           <ul>Price: {{item.price}}</ul>
           <ul>Quantity: {{item.quantity}}</ul>
         </div>
-          <button ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+          <button class="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
           <button ng-if="item.quantity === 0">Out of stock</button>
       </ion-item>
       <h1>Women's Formalwear</h1>
@@ -27,7 +28,7 @@
           <ul>Price: {{item.price}}</ul>
           <ul>Quantity: {{item.quantity}}</ul>
         </div>
-          <button ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+          <button class="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
           <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
   </ion-content>
