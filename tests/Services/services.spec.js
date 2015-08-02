@@ -91,4 +91,10 @@ describe('Stock service', function(){
 		Stock.fifteenPoundVoucher();
 		expect(Stock.total()).toEqual(84);
 	});
+
+	it('£15 voucher can\'t be apploed when order is equal 0', function(){
+		expect(Stock.total()).toEqual(0);
+		Stock.fifteenPoundVoucher();
+		expect(Stock.total()).toEqual(0);
+	});
 });
