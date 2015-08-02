@@ -122,7 +122,7 @@ angular.module('shop.services', [])
     updateBasket: function(itemId) {
       for (var i = 0; i < items.length; i++) {
         if (items[i].id === parseInt(itemId)) {
-          order.push({id: items[i].id, name: items[i].name, price: items[i].price});
+          order.push({id: items[i].id, name: items[i].name, category: items[i].category, price: items[i].price});
           prices.push(items[i].price);  
         }
       }

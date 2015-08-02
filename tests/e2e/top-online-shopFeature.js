@@ -8,6 +8,7 @@ describe('Top online shop', function() {
   var applyFiveVoucher = element(by.className('five-pounds'));
   var applyTenVoucher = element(by.className('ten-pounds'));
   var tenVoucherAlert = element(by.className('ten-alert'));
+  var applyFifteenVoucher = element(by.className('fifteen-pounds'));
  
 
 
@@ -122,6 +123,15 @@ describe('Top online shop', function() {
     expect(element(by.className('total-price')).getText()).toEqual('Total: £34');
     applyTenVoucher.click();
     expect(element(by.binding('tenAlert')).getText()).toEqual('You need to spend more than $50 pounds to use this voucher.');
+  });
+
+  it('updates total price when 15£ voucher applied', function(){
+    womenClothesLink.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £99');
+    applyFifteenVoucher.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £84');
   });
 
 

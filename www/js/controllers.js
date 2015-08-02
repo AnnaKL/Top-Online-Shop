@@ -24,7 +24,6 @@ angular.module('shop.controllers', [])
   };
 
   $scope.applyTenPoundVoucher = function() {
-  	console.log($scope.total)
   	if($scope.total > 50) {
         Stock.tenPoundVoucher();
         $scope.hideTenVoucherAlert();
@@ -37,7 +36,32 @@ angular.module('shop.controllers', [])
   	$scope.tenAlert = "You need to spend more than $50 pounds to use this voucher.";
   }	
 
-   $scope.hideTenVoucherAlert = function() {
+  $scope.hideTenVoucherAlert = function() {
   	$scope.tenAlert = ""; 
   }	
+
+  $scope.applyFifteenPoundVoucher = function() {
+  	var items = $scope.order;
+  
+
+  	for(var i=0; i < items.length; i++) {
+  			console.log($scope.order[i].category)
+			if( items[i].category === "Women's Footwear" || items[i].category === "Male Footwear" ) {
+		  	if($scope.total > 75) {
+		        Stock.fifteenPoundVoucher();
+		        $scope.hideFifteenVoucherAlert();
+		    }
+		  } else {
+		     $scope.showFifteenVoucherAlert();
+	   }
+    }
+  };
+
+  $scope.showFifteenVoucherAlert = function() {
+  	$scope.fifteenAlert = "You need to spend more than $75 pounds  and buy a footwear to use this voucher.";
+  }	
+
+  $scope.hideFifteenVoucherAlert = function() {
+  	$scope.fifteenAlert = ""; 
+  }
 });

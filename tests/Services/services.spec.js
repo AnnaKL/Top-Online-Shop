@@ -35,7 +35,7 @@ describe('Stock service', function(){
 
 	it('can place an item in the order array', function(){
 		Stock.updateBasket(0);
-		expect(Stock.order()).toEqual([{id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
+		expect(Stock.order()).toEqual([{id: 0, name: "Almond Toe Court Shoes, Patent Black", category: "Women's Footwear", price: 99}]);
 	});
 
 	it('can calculate total price', function(){
@@ -52,15 +52,15 @@ describe('Stock service', function(){
 
 	it('can remove item from order', function(){
 		Stock.updateBasket(0);
-		expect(Stock.order()).toEqual([{id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99}]);
-		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
+		expect(Stock.order()).toEqual([{id: 0, name: "Almond Toe Court Shoes, Patent Black", category: "Women's Footwear", price: 99}]);
+		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", category: "Women's Footwear", price: 99});
 		expect(Stock.order()).toEqual([]);
 	});
 
 	it('updates total price when item returned to stock', function(){
 		Stock.updateBasket(0);
 		expect(Stock.total()).toEqual(99);
-		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
+		Stock.removeOrder({id: 0, name: "Almond Toe Court Shoes, Patent Black", category: "Women's Footwear", price: 99});
 		expect(Stock.total()).toEqual(0);
 	});
 
@@ -68,7 +68,7 @@ describe('Stock service', function(){
         expect(Stock.get(0).quantity).toEqual(5);
 		Stock.update(0);
 		expect(Stock.get(0).quantity).toEqual(4);
-		Stock.returnItemToStock({id: 0, name: "Almond Toe Court Shoes, Patent Black", price: 99});
+		Stock.returnItemToStock({id: 0, name: "Almond Toe Court Shoes, Patent Black", category: "Women's Footwear", price: 99});
 		expect(Stock.get(0).quantity).toEqual(5);
 	});
 
