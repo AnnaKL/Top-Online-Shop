@@ -6,6 +6,7 @@ describe('Top online shop', function() {
   var basketItems = element.all(by.repeater('item in order')).first()
   var removeFromBasket = element(by.className('delete'));
   var applyFiveVoucher = element(by.className('five-pounds'));
+  var applyFifteenVoucher = element(by.className('fifteen-pounds'));
 
 
   beforeEach(function(){
@@ -92,6 +93,15 @@ describe('Top online shop', function() {
     expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
     applyFiveVoucher.click();
     expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+  });
+
+  it('updates total price when 15£ voucher applied', function(){
+    womenClothesLink.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £99');
+    applyFifteenVoucher.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £84');
   });
 
 
