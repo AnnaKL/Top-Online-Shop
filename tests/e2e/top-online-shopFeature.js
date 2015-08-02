@@ -66,4 +66,13 @@ describe('Top online shop', function() {
     removeFromBasket.click();
     expect(element(by.binding('item.name')).getText()).toEqual('');
   });
+
+  it('updates total price when item removed from the basket', function(){
+    womenClothesLink.click();
+    addToBasket.click();
+    basketLink.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £99');
+    removeFromBasket.click();
+    expect(element(by.className('total-price')).getText()).toEqual('Total: £0');
+  });
 });
