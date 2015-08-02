@@ -12,6 +12,7 @@
     <h1 class="total-price"> Total: £{{total}}</h1>
     <h2>Vouchers</h2>
     <button class="five-pounds" ng-click="applyFivePoundVoucher()">Add £5 Voucher</button>
-     <button class="fifteen-pounds" ng-click="applyFifteenPoundVoucher()">Add £15 Voucher</button>
+     <button class="ten-pounds" ng-click="applyTenPoundVoucher()">Add £15 Voucher</button>
+      <div class="ten-alert"ng-show="showTenVoucherAlert" ng-hide="hideTenVoucherAlert">{{tenAlert}}</div>
   </ion-content>
 </ion-view>

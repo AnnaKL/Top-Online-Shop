@@ -2,7 +2,7 @@ angular.module('shop.services', [])
 
 .factory('Stock', function() {
 	var five = 0;
-  var fifteen = 0;
+  var ten = 0;
   var order = [];
   var prices = [];
 	var items = [{
@@ -29,7 +29,7 @@ angular.module('shop.services', [])
     {
     	id: 3,
         name: "Flip Flops, Red",
-        category: "Male Footwear",
+        category: "Male Footwear",  
         price: 19,
         quantity: 6
     },
@@ -134,7 +134,7 @@ angular.module('shop.services', [])
       for (var i = 0, total = 0; i < prices.length; total += prices[i++]);
        if(total != 0) {
          total = total - five;
-         total = total - fifteen;
+         total = total - ten;
       }
       return total;
     },
@@ -153,8 +153,8 @@ angular.module('shop.services', [])
     fivePoundVoucher: function() {
       return five = 5;
     },
-    fifteenPoundVoucher: function() {
-      return fifteen = 15;
+    tenPoundVoucher: function() {
+      return ten = 10;
     }
   };
 });

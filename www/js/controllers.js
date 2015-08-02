@@ -23,12 +23,22 @@ angular.module('shop.controllers', [])
   	Stock.fivePoundVoucher();
   };
 
-  $scope.applyFifteenPoundVoucher = function() {
+  $scope.applyTenPoundVoucher = function() {
   	console.log($scope.total)
   	if($scope.total > 50) {
-        Stock.fifteenPoundVoucher();
+        Stock.tenPoundVoucher();
+        $scope.hideTenVoucherAlert();
       } else {
-        alert("You need to spend more than $50 pounds to use this voucher.")
+      	$scope.showTenVoucherAlert();
+        // alert("You need to spend more than $50 pounds to use this voucher.")
       }
-    };	
+    };
+
+  $scope.showTenVoucherAlert = function() {
+  	$scope.tenAlert = "You need to spend more than $50 pounds to use this voucher.";
+  }	
+
+   $scope.hideTenVoucherAlert = function() {
+  	$scope.tenAlert = ""; 
+  }	
 });
