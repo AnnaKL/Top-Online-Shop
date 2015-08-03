@@ -1,20 +1,22 @@
 <ion-view view-title="Shop">
-  <ion-content>
+  <ion-content class="content">
     <h1>Your Basket</h1>
     <ion-item ng-repeat="item in order">
       <div>
 	      <ul>{{item.name}}</ul>
 	      <ul>Price: £{{item.price}}</ul>
       </div>
-       <button class="delete" ng-click="removeItemFromBasket(item)">Remove</button>
+       <button class="button button-small button-calm" id="delete" ng-click="removeItemFromBasket(item)">Remove</button>
     </ion-item>
     <div ng-show="showTotalPrice()"></div>
     <h1 class="total-price"> Total: £{{total}}</h1>
     <h2>Vouchers</h2>
-    <button class="five-pounds" ng-click="applyFivePoundVoucher()">Add £5 Voucher</button>
-     <button class="ten-pounds" ng-click="applyTenPoundVoucher()">Add £10 Voucher</button>
-    <button class="fifteen-pounds" ng-click="applyFifteenPoundVoucher()">Add £15 Voucher</button>
-      <div ng-show="showTenVoucherAlert" >{{tenAlert}}</div>
-      <div ng-show="showFifteenVoucherAlert" >{{fifteenAlert}}</div>
+    <button class="button button-small button-calm" id="five-pounds" ng-click="applyFivePoundVoucher()">Add £5 Voucher</button>
+     <button class="button button-small button-calm" id="ten-pounds" ng-click="applyTenPoundVoucher()">Add £10 Voucher</button>
+    <button class="button button-small button-calm" id="fifteen-pounds" ng-click="applyFifteenPoundVoucher()">Add £15 Voucher</button>
+    <div class="card">
+      <div class="item item-text-wrap" ng-show="showTenVoucherAlert" >{{tenAlert}}</div>
+      <div class="item item-text-wrap" ng-show="showFifteenVoucherAlert" >{{fifteenAlert}}</div>
+    </div>
   </ion-content>
 </ion-view>

@@ -1,1 +1,45 @@
 /* Empty. Add your own CSS if you like */
+.item-avatar {	
+  width: 80%;
+  height: 80%;
+}
+
+.shop-picture {
+	position: relative;
+  top: 60%;
+  right: 20%;
+  width: 140%;
+  height: 140%;
+}
+
+.all {
+ bottom: 120%;
+}
+
+a:hover, a:visited, a:link, a:active{
+  text-decoration: none;
+  font-size: 2em;
+  color: #00bfff;
+}
+
+#men, #women {
+   list-style-type:none;
+   margin:50px;
+   padding:25px;
+   text-align: center;
+  font-size: 2em;
+}
+
+#men {
+	margin-bottom: 50%;
+}
+
+.content {
+	left: 1%;
+}
+
+
+
+
+
+

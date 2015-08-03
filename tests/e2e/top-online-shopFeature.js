@@ -3,12 +3,12 @@ describe('Top online shop', function() {
 	var womenClothesLink = element(by.className('women-link'));
 	var menClothesLink = element(by.className('men-link'));
   var basketLink = element(by.className('basket-link'));
-  var addToBasket = element(by.repeater('item in stock').row(0)).element(by.css('.btn'));
-  var removeFromBasket = element(by.className('delete'));
-  var applyFiveVoucher = element(by.className('five-pounds'));
-  var applyTenVoucher = element(by.className('ten-pounds'));
-  var tenVoucherAlert = element(by.className('ten-alert'));
-  var applyFifteenVoucher = element(by.className('fifteen-pounds'));
+  var addToBasket = element(by.repeater('item in stock').row(0)).element(by.css('#btn'));
+  var removeFromBasket = element(by.id('delete'));
+  var applyFiveVoucher = element(by.id('five-pounds'));
+  var applyTenVoucher = element(by.id('ten-pounds'));
+  var tenVoucherAlert = element(by.id('ten-alert'));
+  var applyFifteenVoucher = element(by.id('fifteen-pounds'));
   var basketItems = element.all(by.repeater('item in order').column('item.name')).first();
   var item = element.all(by.repeater('item in stock').column('item.name')).first();
   var itemQuantity = element.all(by.repeater('item in stock').column('item.quantity')).first();
@@ -48,7 +48,7 @@ describe('Top online shop', function() {
     addToBasket.click();
     addToBasket.click();
     addToBasket.click();
-    expect(element(by.className('out-of-stock')).isPresent()).toBe(true);
+    expect(element(by.id('out-of-stock')).isPresent()).toBe(true);
   });
 
   it('updates displayed quantity when item added to the basket', function(){

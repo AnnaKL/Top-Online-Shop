@@ -1,5 +1,5 @@
 <ion-view view-title="Shop">
-  <ion-content>
+  <ion-content><br>
    <a class="basket-link" href="#/tab/basket">Show basket</a>
     <h1>Men's Footwear</h1>
     <ion-item ng-repeat="item in stock | filter: {category: 'Male Footwear'}">
@@ -7,9 +7,10 @@
         <ul>{{item.name}}</ul>
         <ul>Price: {{item.price}}</ul>
         <ul>Quantity: {{item.quantity}}</ul>
+        <button class="button button-calm" id="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+        <button class="button button-light" id="out-of-stock" ng-if="item.quantity === 0">Sold</button>
+        <img class="item-avatar" ng-src="{{item.image}}">
       </div>
-        <button class="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
-        <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
     <h1>Men's Casualwear</h1>
     <ion-item ng-repeat="item in stock | filter: {category: 'Male Casualwear'}">
@@ -17,9 +18,10 @@
         <ul>{{item.name}}</ul>
         <ul>Price: {{item.price}}</ul>
         <ul>Quantity: {{item.quantity}}</ul>
+        <button class="button button-calm" id="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+        <button class="button button-light" id="out-of-stock" ng-if="item.quantity === 0">Sold</button>
+        <img class="item-avatar" ng-src="{{item.image}}">
       </div>
-        <button class="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
-        <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
     <h1>Men's Formalwear</h1>
     <ion-item ng-repeat="item in stock | filter: {category: 'Male Formalwear'}">
@@ -27,9 +29,10 @@
         <ul>{{item.name}}</ul>
         <ul>Price: {{item.price}}</ul>
         <ul>Quantity: {{item.quantity}}</ul>
+         <button class="button button-calm" id="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
+        <button iclass="button button-light" d="out-of-stock" ng-if="item.quantity === 0">Sold</button>
+         <img class="item-avatar" ng-src="{{item.image}}">
       </div>
-        <button class="btn" ng-if="item.quantity != 0" ng-click="addToBasket(item.id)">Buy</button>
-        <button ng-if="item.quantity === 0">Out of stock</button>
     </ion-item>
   </ion-content>
 </ion-view>
