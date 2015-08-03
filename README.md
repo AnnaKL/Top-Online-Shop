@@ -47,9 +47,9 @@ I've used Ionic Tabs to split interface between 3 'pages'. First and second tab 
 All code I've written is located in ```www``` and ```tests``` folders. 
 
 HTML is seperated between ```www/index.html``` file and ```www/templates```.
-Javascript code is splitted between ```www/js/app.js```(contaning Angular module code), ```www/js/controllers.js```(including Angular controller code) and ```www/js/services```(holding Angular factory code).
+Javascript code is splitted between ```www/js/app.js```(containing Angular module code), ```www/js/controllers.js```(including Angular controller code) and ```www/js/services```(holding Angular factory code).
 
-Karma unit testing code is seperated between ```tests/Controllers``` and ```tests/Services``` folders.
+Karma unit test code is seperated between ```tests/Controllers``` and ```tests/Services``` folders.
 Protractor UI code is located in the ```tests/e2e``` folder.
 
 NodeJS is used to serve Ionic app.
@@ -69,12 +69,12 @@ ionic serve --lab
 
 Make sure to have karma-cli ```npm install -g karma-cli``` and ```webdriver-manager update``` installed.
 
-To run unit test:
+To run unit tests:
 ```
 karma start tests/karma.conf
 ```
 
-To run feature test:
+To run feature tests:
 ```
 ionic serve --lab
 webdriver-manager start
