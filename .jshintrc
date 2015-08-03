@@ -1,0 +1,8 @@
+jshint:
+{
+  options:
+  {
+      node: true,
+      jasmine: true
+  }
+}
