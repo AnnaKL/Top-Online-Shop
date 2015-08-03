@@ -16,7 +16,7 @@ Tested with:
 * Karma for unit testing
 * Protractor for UI testing 
 
-Implemented user stories:
+##Implemented user stories:
 
 ```
  As a User I can add a product to my shopping cart.
@@ -33,3 +33,17 @@ Implemented user stories:
  - £10.00 off when you spend over £50.00,
  - £15.00 off when you have bought at least one footwear item and spent over £75.00
 ```
+
+##Approach:
+
+##File structure:
+
+All the code I've written is located in ```www``` and ```tests``` folders. 
+
+HTML is seperated between ```www/index.html``` file and ```www/templates```.
+Javascript code is splitted between ```www/js/app.js```(contaning Angular module code), ```www/js/controllers.js```(including Angular controller code) and ```www/js/services```(holding Angular factory code).
+
+Karma unit testing code is seperated between ```tests/Controllers``` and ```tests/Services``` folders.
+Protractor UI code is located in the ```tests/e2e``` folder.
+
+NodeJS is used to serve Ionic app.
