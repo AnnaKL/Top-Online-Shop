@@ -1,14 +1,17 @@
 describe('Top online shop', function() {
+
 	var womenClothesLink = element(by.className('women-link'));
 	var menClothesLink = element(by.className('men-link'));
   var basketLink = element(by.className('basket-link'));
-  var addToBasket = element(by.className('btn')); 
-  var basketItems = element.all(by.repeater('item in order')).first();
+  var addToBasket = element(by.repeater('item in stock').row(0)).element(by.css('.btn'));
   var removeFromBasket = element(by.className('delete'));
   var applyFiveVoucher = element(by.className('five-pounds'));
   var applyTenVoucher = element(by.className('ten-pounds'));
   var tenVoucherAlert = element(by.className('ten-alert'));
   var applyFifteenVoucher = element(by.className('fifteen-pounds'));
+  var basketItems = element.all(by.repeater('item in order').column('item.name')).first();
+  var item = element.all(by.repeater('item in stock').column('item.name')).first();
+  var itemQuantity = element.all(by.repeater('item in stock').column('item.quantity')).first();
  
 
 
@@ -23,22 +26,22 @@ describe('Top online shop', function() {
 
   it('can display Women\'s Clothes', function(){
   	womenClothesLink.click();
-  	expect(element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
+  	expect(item.getText()).toEqual('Almond Toe Court Shoes, Patent Black');
   });
 
   it('can display Men\'s Clothes', function(){
   	menClothesLink.click();
-  	expect(element(by.binding('item.name')).getText()).toEqual('Leather Driver Saddle Loafers, Tan');
+  	expect(item.getText()).toEqual('Leather Driver Saddle Loafers, Tan');
   });
 
   it('can add item to the basket', function(){
     womenClothesLink.click();
     addToBasket.click();
     basketLink.click();
-    expect(basketItems.element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
+    expect(basketItems.getText()).toEqual('Almond Toe Court Shoes, Patent Black');
   });
   
-  it('display out-of-stock button when item\'s quantity equal to 0', function(){
+  it('display out-of-stock button when item quantity is 0', function(){
     womenClothesLink.click();
     addToBasket.click();
     addToBasket.click();
@@ -50,9 +53,9 @@ describe('Top online shop', function() {
 
   it('updates displayed quantity when item added to the basket', function(){
     womenClothesLink.click();
-    expect(element(by.binding('item.quantity')).getText()).toEqual('Quantity: 5');
+    expect(itemQuantity.getText()).toEqual('Quantity: 5');
     addToBasket.click();
-    expect(element(by.binding('item.quantity')).getText()).toEqual('Quantity: 4');
+    expect(itemQuantity.getText()).toEqual('Quantity: 4');
   });
 
   it('can calculate and display total price', function(){
@@ -68,9 +71,9 @@ describe('Top online shop', function() {
     womenClothesLink.click();
     addToBasket.click();
     basketLink.click();
-    expect(basketItems.element(by.binding('item.name')).getText()).toEqual('Almond Toe Court Shoes, Patent Black');
+    expect(basketItems.getText()).toEqual('Almond Toe Court Shoes, Patent Black');
     removeFromBasket.click();
-    expect(element(by.binding('item.name')).getText()).toEqual('');
+    expect(item.getText()).toEqual('');
   });
 
   it('updates total price when item removed from the basket', function(){
