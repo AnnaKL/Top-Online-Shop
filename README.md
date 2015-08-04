@@ -60,6 +60,8 @@ To use the app, first please make sure that you have Node.js installed. Then:
 ```
 git clone git@github.com:AnnaKL/Top-Online-Shop.git
 cd Top-Online-Shop
+npm install -g cordova
+npm install -g ionic
 bower install
 npm install
 ionic serve --lab
@@ -67,7 +69,10 @@ ionic serve --lab
 
 ##To run the tests:
 
-Make sure to have karma-cli ```npm install -g karma-cli``` and ```webdriver-manager update``` installed.
+Make sure to have karma-cli, protractor and webdriver-manager installed.
+```npm install -g karma-cli```
+```npm install -g protractor``` 
+```webdriver-manager update```
 
 To run unit tests:
 ```
