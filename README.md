@@ -70,9 +70,11 @@ ionic serve --lab
 ##To run the tests:
 
 Make sure to have karma-cli, protractor and webdriver-manager installed.
-```npm install -g karma-cli```
-```npm install -g protractor``` 
-```webdriver-manager update```
+```
+npm install -g karma-cli
+npm install -g protractor 
+webdriver-manager update
+```
 
 To run unit tests:
 ```
