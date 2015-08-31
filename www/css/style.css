@@ -14,7 +14,7 @@
   width: 400px;
 }
 
-.row {
+#title {
   font-family: sans-serif;
 }
 
@@ -22,8 +22,16 @@
   display: inline;
 }
 
+#item, #basket-item-price {
+  margin-left: 10px;
+}
+
 .button {
   margin-left: 5px;
+}
+
+#in-stock, #out-of-stock {
+  margin-left: 15px;
 }
 
 #shop-link, #basket-link {
@@ -31,7 +39,7 @@
   font-size: 30px;
   font-family: sans-serif;
   text-decoration: none;
-  margin-left: 90px;
+  margin-left: 80px;
   margin-top: 20px;
   margin-bottom: 20px;
 }

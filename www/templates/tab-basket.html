@@ -2,7 +2,7 @@
   <ion-content class="content">
     <h1 class="row">Your Basket</h1>
     <div class="basket-items" ng-repeat="(index, item) in shop.order() track by $index">
-      <ul class="row">{{item.name}}</ul>
+      <ul class="row" id="item">{{item.name}}</ul>
       <ul class="row" id="basket-item-price">Price: £{{item.price}}</ul>
       <button class="button button-small button-calm" id="delete" ng-click="shop.removeItemFromBasket(item)">Remove</button>
     </div>
