@@ -4,9 +4,9 @@ angular.module('shop.services', [])
   var order = [];
   var prices = [];
   var voucherValue = 0;
-  var fiveVoucherApplied = false;
-  var tenVoucherApplied = false;
-  var fifteenVoucherApplied = false;
+  var isFiveVoucherApplied = false;
+  var isTenVoucherApplied = false;
+  var isFifteenVoucherApplied = false;
   var items = [
     {"Womens Footwear": [{
         name: "Suede Shoes, Blue",
@@ -129,7 +129,7 @@ angular.module('shop.services', [])
       voucherValue = 0;
       this.availableVouchers();
     },
-    isShoesOrdered: function() {
+    areShoesOrdered: function() {
       for(var i=0; i < order.length; i++) {
         if(order[i].category.indexOf("Footwear") !=-1) {
           return true
@@ -137,28 +137,28 @@ angular.module('shop.services', [])
       }
     },
     applyVoucher: function(voucher) {
-      if(voucher === 5 && fiveVoucherApplied === false) {this.applyFivePoundsVoucher()};
-      if(voucher === 10 && tenVoucherApplied === false) {this.applyTenPoundsVoucher()};
-      if(voucher === 15 && fifteenVoucherApplied === false) {this.applyFifteenPoundsVoucher()};
+      if(voucher === 5 && isFiveVoucherApplied === false) {this.applyFivePoundsVoucher()};
+      if(voucher === 10 && isTenVoucherApplied === false) {this.applyTenPoundsVoucher()};
+      if(voucher === 15 && isFifteenVoucherApplied === false) {this.applyFifteenPoundsVoucher()};
     },
     availableVouchers: function() {
-      fiveVoucherApplied = false;
-      tenVoucherApplied = false;
-      fifteenVoucherApplied = false;
+      isFiveVoucherApplied = false;
+      isTenVoucherApplied = false;
+      isFifteenVoucherApplied = false;
     },
     applyFivePoundsVoucher: function() {
-      fiveVoucherApplied = true;
+      isFiveVoucherApplied = true;
       voucherValue += 5;
     },
     applyTenPoundsVoucher: function() {
       if(this.totalPrice() > 50 ) {
-        tenVoucherApplied = true;
+        isTenVoucherApplied = true;
         voucherValue += 10;
       } else {$ionicPopup.alert({ title: "You need to spend more than $50 pounds to use £10 voucher."})}
     },
     applyFifteenPoundsVoucher: function() {
-      if(this.totalPrice() > 75 && this.isShoesOrdered()) {
-        fifteenVoucherApplied = true;
+      if(this.totalPrice() > 75 && this.areShoesOrdered()) {
+        isFifteenVoucherApplied = true;
         voucherValue += 15;
       } else {$ionicPopup.alert({title: "You need to spend more than $75 pounds and buy a footwear to use £15 voucher."})}
     }
