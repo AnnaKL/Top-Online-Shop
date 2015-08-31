@@ -1,178 +1,168 @@
 angular.module('shop.services', [])
 
-.factory('Stock', function() {
-	var five = 0;
-  var ten = 0;
-  var fifteen = 0;
+.factory('Shop', function($ionicPopup) {
   var order = [];
   var prices = [];
-	var items = [{
-        id: 0,
-		    name: "Almond Toe Court Shoes, Patent Black",
-        category: "Women's Footwear",
-        price: 99,
-        quantity: 5,
-        image: "img/black-shoes.png"
-    },
-    { 
-    	id: 1,
+  var voucherValue = 0;
+  var fiveVoucherApplied = false;
+  var tenVoucherApplied = false;
+  var fifteenVoucherApplied = false;
+	var items = [
+    {"Womens Footwear": [{
         name: "Suede Shoes, Blue",
-        category: "Women's Footwear",
         price: 42,
         quantity: 4,
+        category: "Womens Footwear",
         image: "img/blue-shoes.png"
     },
     {
-    	id: 2,
+        name: "Almond Toe Court Shoes, Patent Black",
+        price: 99,
+        quantity: 5,
+        category: "Womens Footwear",
+        image: "img/black-shoes.png"
+    }]},
+    {"Women's Formalwear": [{
+        name: "Bird Print Dress, Black",
+        price: 270,
+        quantity: 10,
+        category: "Women's Formalwear",
+        image: "img/bird-dress.png"
+    },
+    {
+        name: "Mid Twist Cut-Out Dress, Pink",
+        price: 540,
+        quantity: 5,
+        category: "Women's Formalwear",
+        image: "img/pink-dress.png"
+
+    }]},
+    {"Women's Casualwear": [{
+        name: "Gold Button Cardigan, Black",
+        price: 167,
+        quantity: 6,
+        category: "Women's Casualwear",
+        image: "img/black-sweater.png"
+    },
+    {
+        name: "Cotton Shorts, Medium Red",
+        price: 30,
+        quantity: 5,
+        category: "Women's Casualwear",
+        image: "img/cotton-shorts.png"
+    }]},
+    {"Male Footwear": [{
         name: "Leather Driver Saddle Loafers, Tan",
-        category: "Male Footwear",
         price: 34,
         quantity: 12,
+        category: "Male Footwear",
         image: "img/leather-brown.png"
     },
     {
-    	id: 3,
         name: "Flip Flops, Red",
-        category: "Male Footwear",  
         price: 19,
         quantity: 6,
+        category: "Male Footwear",
         image: "img/red-flip.png"
     },
     {
-    	id: 4,
         name: "Flip Flops, Blue",
         category: "Male Footwear",
         price: 19,
         quantity: 0,
+        category: "Male Footwear",
         image: "img/blue-flip.png"
-    },
-    {
-    	id: 5,
-        name: "Gold Button Cardigan, Black",
-        category: "Women's Casualwear",
-        price: 167,
-        quantity: 6,
-        image: "img/black-sweater.png"
-    },
-    {
-    	id: 6,
-        name: "Cotton Shorts, Medium Red",
-        category: "Women's Casualwear",
-        price: 30,
-        quantity: 5,
-        image: "img/cotton-shorts.png"
-    },
-    {
-    	id: 7,
-        name: "Fine Stripe Short Sleeve Shirt, Grey",
-        category: "Male Casualwear",
-        price: 49.99,
-        quantity: 9,
-        image: "img/shirt.png"
-    },
-    {
-    	id: 8,
-        name: "Fine Stripe Short Sleeve Shirt, Green",
-        category: "Male Casualwear",
-        price: 39.99,
-        quantity: 3,
-        image: "img/strip-shirt.png"
-    },
-    {
-    	id: 9,
+    }]},
+    {"Male Formalwear": [{
         name: "Sharkskin Waistcoat, Charcoal",
-        category: "Male Formalwear",
         price: 75,
         quantity: 2,
+        category: "Male Formalwear",
         image: "img/waistcoat.png"
     },
     {
-    	id: 10,
         name: "Lightweight Patch Pocket Blazer, Deer",
-        category: "Male Formalwear",
         price: 175,
         quantity: 1,
+        category: "Male Formalwear",
         image: "img/blazer.png"
+    }]},
+    {"Male Casualwear": [{
+        name: "Fine Stripe Short Sleeve Shirt, Grey",
+        price: 49.99,
+        quantity: 9,
+        category: "Male Casualwear",
+        image: "img/shirt.png"
     },
     {
-    	id: 11,
-        name: "Bird Print Dress, Black",
-        category: "Women's Formalwear",
-        price: 270,
-        quantity: 10,
-        image: "img/bird-dress.png"
-    },
-    {
-    	id: 12,
-        name: "Mid Twist Cut-Out Dress, Pink",
-        category: "Women's Formalwear",
-        price: 540,
-        quantity: 5,
-        image: "img/pink-dress.png"
-
-	}];
+        name: "Fine Stripe Short Sleeve Shirt, Green",
+        price: 39.99,
+        quantity: 3,
+        category: "Male Casualwear",
+        image: "img/strip-shirt.png"
+    }]
+  }];
 
 	return {
     all: function() {
       return items;
     },
-    get: function(itemId) {
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].id === parseInt(itemId)) {
-          return items[i];
-        }
-      }
-      return null;
-    },
-    update: function(itemId) {
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].id === parseInt(itemId)) {
-          return items[i].quantity -= 1;
-        }
-      }
-      return null;
-    },
-    updateBasket: function(itemId) {
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].id === parseInt(itemId)) {
-          order.push({id: items[i].id, name: items[i].name, category: items[i].category, price: items[i].price});
-          prices.push(items[i].price);  
-        }
-      }
-     return null;
+    addToBasket: function(item) {
+      order.push(item);
+      prices.push(item.price)
+      item.quantity-=1;
     },
     order: function() {
       return order;
     },
-    total: function() {
-      for (var i = 0, total = 0; i < prices.length; total += prices[i++]);
+    totalPrice: function() {
+     var total = 0
+     for (var i = 0; i < prices.length; total += prices[i++]);
        if(total != 0) {
-         total = total - five;
-         total = total - ten;
-         total = total - fifteen;
+         total = parseFloat(total).toFixed(2) - voucherValue;
       }
       return total;
     },
-    removeOrder: function(item) {
+    removeItemFromBasket: function(item) {
       order.splice(order.indexOf(item), 1);
-      prices.splice(item.quantity, 1);
+      prices.splice(prices.indexOf(item.price), 1);
+      item.quantity ++;
+      voucherValue = 0;
+      this.availableVouchers();
     },
-    returnItemToStock: function(item) {
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].id === parseInt(item.id)) {
-          return items[i].quantity += 1;
+    isShoesOrdered: function() {
+      for(var i=0; i < order.length; i++) {
+        if(order[i].category.indexOf("Footwear") !=-1) {
+          return true
         }
       }
-      return null;
     },
-    fivePoundVoucher: function() {
-      return five = 5;
+    applyVoucher: function(voucher) {
+      if(voucher === 5 && fiveVoucherApplied === false) {this.applyFivePoundsVoucher()};
+      if(voucher === 10 && tenVoucherApplied === false) {this.applyTenPoundsVoucher()};
+      if(voucher === 15 && fifteenVoucherApplied === false) {this.applyFifteenPoundsVoucher()};
+
     },
-    tenPoundVoucher: function() {
-      return ten = 10;
+    availableVouchers: function() {
+      fiveVoucherApplied = false;
+      tenVoucherApplied = false;
+      fifteenVoucherApplied = false;
     },
-    fifteenPoundVoucher: function() {
-      return fifteen = 15;
+    applyFivePoundsVoucher: function() {
+       fiveVoucherApplied = true;
+       voucherValue += 5;
+    },
+    applyTenPoundsVoucher: function() {
+      if(this.totalPrice() > 50 ) {
+      tenVoucherApplied = true;
+      voucherValue += 10;
+    } else {$ionicPopup.alert({ title: "You need to spend more than $50 pounds to use £10 voucher."})}
+    },
+     applyFifteenPoundsVoucher: function() {
+      if(this.totalPrice() > 75 && this.isShoesOrdered()) {
+      fifteenVoucherApplied = true;
+      voucherValue += 15;
+    } else {$ionicPopup.alert({title: "You need to spend more than $75 pounds and buy a footwear to use £15 voucher."})}
     }
   };
 });

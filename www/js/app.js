@@ -1,11 +1,5 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('shop', ['ionic', 'shop.controllers', 'shop.services'])
+angular.module('shop', ['ionic','shop.controllers', 'shop.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,14 +17,15 @@ angular.module('shop', ['ionic', 'shop.controllers', 'shop.services'])
   });
 })
 
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
 
-    .state('shopStock', {
-    url: "/stock",
-    templateUrl: "/templates/stock.html",
-    controller: 'StockCtrl'
+  .state('welcome', {
+    url: "/welcome",
+    templateUrl: "/templates/welcome.html",
+    controller: 'ShopCtrl'
   })
 
     .state('tab', {
@@ -39,22 +34,12 @@ angular.module('shop', ['ionic', 'shop.controllers', 'shop.services'])
     templateUrl: "templates/tabs.html"
   })
 
-  .state('tab.men', {
-      url: '/men',
+  .state('tab.shop', {
+      url: '/shop',
       views: {
-      'tab-men': {
-      templateUrl: 'templates/tab-men.html',
-      controller: 'StockCtrl'
-      }
-    }
-  })
-
-  .state('tab.women', {
-      url: '/women',
-      views: {
-      'tab-women': {
-      templateUrl: 'templates/tab-women.html',
-      controller: 'StockCtrl'
+      'tab-shop': {
+      templateUrl: 'templates/tab-shop.html',
+      controller: 'ShopCtrl'
      }
     }
   })
@@ -63,12 +48,12 @@ angular.module('shop', ['ionic', 'shop.controllers', 'shop.services'])
       views: {
       'tab-basket': {
       templateUrl: 'templates/tab-basket.html',
-      controller: 'StockCtrl'
+      controller: 'ShopCtrl'
      }
     }
   })
 
 
 
-     $urlRouterProvider.otherwise('/stock');
+     $urlRouterProvider.otherwise('/welcome');
 })

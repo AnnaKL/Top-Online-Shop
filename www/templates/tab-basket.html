@@ -1,22 +1,16 @@
 <ion-view view-title="Shop">
   <ion-content class="content">
-    <h1>Your Basket</h1>
-    <ion-item ng-repeat="item in order">
-      <div>
-	      <ul>{{item.name}}</ul>
-	      <ul>Price: £{{item.price}}</ul>
-      </div>
-       <button class="button button-small button-calm" id="delete" ng-click="removeItemFromBasket(item)">Remove</button>
-    </ion-item>
-    <div ng-show="showTotalPrice()"></div>
-    <h1 class="total-price"> Total: £{{total}}</h1>
-    <h2>Vouchers</h2>
-    <button class="button button-small button-calm" id="five-pounds" ng-click="applyFivePoundVoucher()">Add £5 Voucher</button>
-     <button class="button button-small button-calm" id="ten-pounds" ng-click="applyTenPoundVoucher()">Add £10 Voucher</button>
-    <button class="button button-small button-calm" id="fifteen-pounds" ng-click="applyFifteenPoundVoucher()">Add £15 Voucher</button>
-    <div class="card">
-      <div class="item item-text-wrap" ng-show="showTenVoucherAlert" >{{tenAlert}}</div>
-      <div class="item item-text-wrap" ng-show="showFifteenVoucherAlert" >{{fifteenAlert}}</div>
+    <h1 class="row">Your Basket</h1>
+    <div class="basket-items" ng-repeat="(index, item) in shop.order() track by $index">
+	      <ul class="row">{{item.name}}</ul>
+	      <ul id="basket-item-price" class="row">Price: £{{item.price}}</ul>
+       <button class="button button-small button-calm" id="delete" ng-click="shop.removeItemFromBasket(item)">Remove</button>
+    </div>
+    <h1 class="row" id="total-price"> Total: £{{shop.totalPrice()}}</h1>
+    <div>
+    <button id="five-pounds" ng-disable="shop.fiveApplied !=false" class="button button-small button-calm" ng-click="shop.applyVoucher(5)">Add £5 Voucher</button>
+     <button id="ten-pounds" ng-disable="shop.tenApplied !=false" class="button button-small button-calm"  ng-click="shop.applyVoucher(10)">Add £10 Voucher</button>
+    <button id="fifteen-pounds" ng-disable="shop.fifteenApplied !=false" class="button button-small button-calm" ng-click="shop.applyVoucher(15)">Add £15 Voucher</button>
     </div>
   </ion-content>
 </ion-view>
