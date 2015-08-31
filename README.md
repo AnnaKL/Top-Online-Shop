@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/AnnaKL/Top-Online-Shop.svg?branch=master)](https://travis-ci.org/AnnaKL/Top-Online-Shop)
 
-## Top Online Shop 
+## Top Online Shop
 
-![Picture 1](www/img/screenshot1.png)  ![Picture 2](www/img/screenshot2.png) 
+![Picture 1](www/img/screenshot1.png)  ![Picture 2](www/img/screenshot2.png)
 
 Online Shop application built with:
 * Ionic - HTML5 Hybrid Mobile App Framework using:
@@ -14,7 +14,7 @@ Online Shop application built with:
 
 Tested with:
 * Karma for unit testing
-* Protractor for UI testing 
+* Protractor for UI testing
 
 ##Implemented user stories:
 
@@ -40,11 +40,11 @@ I have decided to use Ionic framework because it seems to be the perfect fit for
 
 I tried to follow MVC principles with logic located in the factory and controller being responsible for binding the view interaction with the model.
 
-I've used Ionic Tabs to split interface between 3 'pages'. First and second tab contains provided data filtered by the Male and Female Wardrobe categories. Third tab includes the Basket and vouchers.
+I've used Ionic Tabs to split interface between 2 'pages'. First tab contains provided data filtered by the Male and Female Wardrobe categories. Second tab includes the Basket and vouchers.
 
 ##File structure:
 
-All code I've written is located in ```www``` and ```tests``` folders. 
+All code I've written is located in ```www``` and ```tests``` folders.
 
 HTML is seperated between ```www/index.html``` file and ```www/templates```.
 Javascript code is splitted between ```www/js/app.js```(containing Angular module code), ```www/js/controllers.js```(including Angular controller code) and ```www/js/services```(holding Angular factory code).
@@ -72,7 +72,7 @@ ionic serve --lab
 Make sure to have karma-cli, protractor and webdriver-manager installed.
 ```
 npm install -g karma-cli
-npm install -g protractor 
+npm install -g protractor
 webdriver-manager update
 ```
 

@@ -7,7 +7,7 @@ angular.module('shop.services', [])
   var fiveVoucherApplied = false;
   var tenVoucherApplied = false;
   var fifteenVoucherApplied = false;
-	var items = [
+  var items = [
     {"Womens Footwear": [{
         name: "Suede Shoes, Blue",
         price: 42,
@@ -102,7 +102,7 @@ angular.module('shop.services', [])
     }]
   }];
 
-	return {
+  return {
     all: function() {
       return items;
     },
