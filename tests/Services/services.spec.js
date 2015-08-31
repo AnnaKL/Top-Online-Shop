@@ -4,12 +4,12 @@ describe('Shop service', function(){
 	var ionicPopup
 
 	beforeEach(function(){
-  module('shop.services', function($provide){
-    $provide.service('$ionicPopup', function(){
-      this.alert= jasmine.createSpy('alert');
-    });
-      });
-  });
+		module('shop.services', function($provide){
+			$provide.service('$ionicPopup', function(){
+				this.alert= jasmine.createSpy('alert');
+			});
+		});
+	});
 
 	beforeEach(inject(function (_Shop_, $ionicPopup){
 		ionicPopup = $ionicPopup

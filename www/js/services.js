@@ -35,7 +35,6 @@ angular.module('shop.services', [])
         quantity: 5,
         category: "Women's Formalwear",
         image: "img/pink-dress.png"
-
     }]},
     {"Women's Casualwear": [{
         name: "Gold Button Cardigan, Black",
@@ -141,7 +140,6 @@ angular.module('shop.services', [])
       if(voucher === 5 && fiveVoucherApplied === false) {this.applyFivePoundsVoucher()};
       if(voucher === 10 && tenVoucherApplied === false) {this.applyTenPoundsVoucher()};
       if(voucher === 15 && fifteenVoucherApplied === false) {this.applyFifteenPoundsVoucher()};
-
     },
     availableVouchers: function() {
       fiveVoucherApplied = false;
@@ -149,20 +147,20 @@ angular.module('shop.services', [])
       fifteenVoucherApplied = false;
     },
     applyFivePoundsVoucher: function() {
-       fiveVoucherApplied = true;
-       voucherValue += 5;
+      fiveVoucherApplied = true;
+      voucherValue += 5;
     },
     applyTenPoundsVoucher: function() {
       if(this.totalPrice() > 50 ) {
-      tenVoucherApplied = true;
-      voucherValue += 10;
-    } else {$ionicPopup.alert({ title: "You need to spend more than $50 pounds to use £10 voucher."})}
+        tenVoucherApplied = true;
+        voucherValue += 10;
+      } else {$ionicPopup.alert({ title: "You need to spend more than $50 pounds to use £10 voucher."})}
     },
-     applyFifteenPoundsVoucher: function() {
+    applyFifteenPoundsVoucher: function() {
       if(this.totalPrice() > 75 && this.isShoesOrdered()) {
-      fifteenVoucherApplied = true;
-      voucherValue += 15;
-    } else {$ionicPopup.alert({title: "You need to spend more than $75 pounds and buy a footwear to use £15 voucher."})}
+        fifteenVoucherApplied = true;
+        voucherValue += 15;
+      } else {$ionicPopup.alert({title: "You need to spend more than $75 pounds and buy a footwear to use £15 voucher."})}
     }
   };
 });

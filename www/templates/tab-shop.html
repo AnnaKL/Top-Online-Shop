@@ -1,16 +1,18 @@
 <ion-view view-title="Shop">
   <ion-content class="content">
-   <a class="row" id="basket-link" href="#/tab/basket">Show basket</a>
-   <div ng-repeat="objects in shop.all()">
+    <a class="row" id="basket-link" href="#/tab/basket">Show basket</a>
+    <div ng-repeat="objects in shop.all()">
       <div ng-repeat="(type, items) in objects">
-          <h1 class="row">{{type}}</h1>
-          <div class="shop-items" ng-repeat="item in items">
-          <ul id="item" class="row">{{item.name}}</ul>
+        <h1 class="row">{{type}}</h1>
+        <div class="shop-items" ng-repeat="item in items">
+          <ul class="row" id="item" >{{item.name}}</ul>
           <ul class="row">Price: {{item.price}}</ul>
           <ul class="row">Quantity: {{item.quantity}}</ul>
-         <button class="button button-calm" ng-if="item.quantity != 0" ng-click="shop.addToBasket(item)">Buy</button>
-         <button class="button button-light" id="out-of-stock"ng-if="item.quantity === 0">Sold</button>
+          <button class="button button-calm" ng-if="item.quantity != 0" ng-click="shop.addToBasket(item)">Buy</button>
+          <button class="button button-light" id="out-of-stock"ng-if="item.quantity === 0">Sold</button>
           <img id="img" class="row" ng-src="{{item.image}}">
         </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
