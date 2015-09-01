@@ -8,7 +8,7 @@ angular.module('shop.services', [])
   var isTenVoucherApplied = false;
   var isFifteenVoucherApplied = false;
   var items = [
-    {"Womens Footwear": [{
+    {"Female Footwear": [{
         name: "Suede Shoes, Blue",
         price: 42,
         quantity: 4,
@@ -22,7 +22,7 @@ angular.module('shop.services', [])
         category: "Womens Footwear",
         image: "img/black-shoes.png"
     }]},
-    {"Women's Formalwear": [{
+    {"Female Formalwear": [{
         name: "Bird Print Dress, Black",
         price: 270,
         quantity: 10,
@@ -36,7 +36,7 @@ angular.module('shop.services', [])
         category: "Women's Formalwear",
         image: "img/pink-dress.png"
     }]},
-    {"Women's Casualwear": [{
+    {"Female Casualwear": [{
         name: "Gold Button Cardigan, Black",
         price: 167,
         quantity: 6,

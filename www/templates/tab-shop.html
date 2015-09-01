@@ -3,7 +3,7 @@
     <a class="row" id="basket-link" href="#/tab/basket">Show basket</a>
     <div ng-repeat="objects in shop.all()">
       <div ng-repeat="(type, items) in objects">
-        <h1 class="row" id="title">{{type}}</h1>
+        <h2 class="row" id="title">{{type}}</h2>
         <div class="shop-items" ng-repeat="item in items">
           <ul class="row" id="item" >{{item.name}}</ul>
           <ul class="row" id="item">Price: {{item.price}}</ul>
