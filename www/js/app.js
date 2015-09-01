@@ -20,7 +20,7 @@ angular.module('shop', ['ionic','shop.controllers', 'shop.services'])
 
   .state('welcome', {
     url: "/welcome",
-    templateUrl: "/templates/welcome.html",
+    templateUrl: "templates/welcome.html",
     controller: 'ShopCtrl'
   })
 
