@@ -5,36 +5,28 @@
   position: fixed;
 }
 
-#img {
+.img {
   width: 300px;
   margin-left: 20px;
 }
-#welcome-img {
+.welcome-img {
   margin-top: 50px;
   width: 400px;
 }
 
-#title {
+.title {
   font-family: sans-serif;
 }
 
-#basket-item-price, #delete {
+.basket-item-price, .button {
   display: inline;
-}
-
-#item, #basket-item-price {
-  margin-left: 10px;
 }
 
 .button {
   margin-left: 5px;
 }
 
-#in-stock, #out-of-stock {
-  margin-left: 15px;
-}
-
-#shop-link, #basket-link {
+.shop-link, .basket-link {
   color: #00bfff;
   font-size: 30px;
   font-family: sans-serif;
@@ -46,8 +38,10 @@
 
 .shop-items {
   margin-bottom: 70px;
+  margin-left: 10px;
 }
 
 .basket-items {
   margin-bottom: 30px;
+  margin-left: 10px;
 }
